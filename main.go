@@ -47,7 +47,7 @@ func MessengerVerify(w http.ResponseWriter, r *http.Request) {
 				reply.Message.Text = resp
 				reply.Message.Seq = 0 //these fields are not used so remove them with omit empty
 				reply.Message.Mid = ""
-				values := map[string]string{"AR_ID":0011459625}
+				values := map[string]string{"AR_ID":"0011459625"}
 
 				jsonValue, _ := json.Marshal(values)
 
