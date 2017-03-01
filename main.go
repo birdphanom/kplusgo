@@ -51,7 +51,7 @@ func MessengerVerify(w http.ResponseWriter, r *http.Request) {
 
 				jsonValue, _ := json.Marshal(values)
 
-				b, _ := json.Marshal(reply)
+				
 				http.Post("https://sandbox.api.kasikornbank.com:8243/gh/deposit/sight/transactions/1.0.0",
 					"application/json",
 					bytes.NewReader(jsonValue))
