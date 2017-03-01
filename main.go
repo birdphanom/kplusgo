@@ -47,12 +47,14 @@ func MessengerVerify(w http.ResponseWriter, r *http.Request) {
 				reply.Message.Text = resp
 				reply.Message.Seq = 0 //these fields are not used so remove them with omit empty
 				reply.Message.Mid = ""
+				values := map[string]string{"AR_ID":0011459625}
+
+				jsonValue, _ := json.Marshal(values)
 
 				b, _ := json.Marshal(reply)
-				url := fmt.Sprintf("https://graph.facebook.com/v2.6/me/messages?access_token=%s", PAGE_TOKEN)
-				http.Post(url,
+				http.Post("https://sandbox.api.kasikornbank.com:8243/gh/deposit/sight/transactions/1.0.0",
 					"application/json",
-					bytes.NewReader(b))
+					bytes.NewReader(jsonValue))
 			}
 			return
 		}
